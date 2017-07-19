@@ -1,0 +1,20 @@
+<span [formGroup]="ticketForm" class="ticket-form" novalidate>
+	<span class="counter-label">
+	{{ counterLabel }}
+	</span>
+	<span class="counter-plus">
+		<button (click)="decrease($event);">-</button>
+	</span>
+	<span class="counter-value">
+		<input type="text" class="ticketCounter" formControlName="ticketCounter" [(ngModel)]="item" min="counterMin" max="counterMax" (change)="changeCounter($event)" [min]="counterMin" [max]="counterMax" step="1" minlength="1" maxlength="4" pattern="\d{1,4}" value="{{ counterValue }}" number required />
+	</span>
+	<span class="counter-minus">
+		<button (click)="increase($event);">+</button>
+	</span>
+	<span class="error-block" [hidden]="(ticketForm.controls.ticketCounter.valid && !submitted)">
+		<p *ngIf="!ticketForm.valid">Form is invalid!</p>
+		<p *ngIf="ticketForm.controls.ticketCounter.errors?.min">min ticket number is 1</p>
+		<p *ngIf="ticketForm.controls.ticketCounter.errors?.max">max ticket number exceeds 9999</p>
+		<p *ngIf="ticketForm.controls.ticketCounter.errors?.digits">not a digit value</p>
+	</span>
+</span>

@@ -1,0 +1,28 @@
+<modal #register [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()" (onOpen)="opened()" [cssClass]="login" class="register-dialog" #validationModal>
+	<form #modalForm="ngForm" novalidate>
+	
+		<modal-header [show-close]="true">
+			<h4 class="modal-title">{{ authModalHeaderLabel }}</h4>
+		</modal-header>
+		
+		<modal-body>
+			<div class="form-group">
+				<label for="username">{{ authModalLoginFieldLabel }}</label>
+				<input type="text" #username class="form-control" autofocus required id="username" name="username" [(ngModel)]="model.login" [placeholder]="authModalLoginFieldPlaceholder">
+			</div>
+			<div class="form-group">
+				<label for="password">{{ authModalPasswordFieldLabel }}</label>
+				<input type="password" #password class="form-control" required id="password" name="password" [(ngModel)]="model.password" [placeholder]="authModalPasswordFieldPlaceholder">
+			</div>
+			<div class="form-group">
+				<label for="repeatPassword">{{ authModalPasswordRepeatFieldLabel }}</label>
+				<input type="password" #repeatPassword class="form-control" required id="repeatPassword" name="repeatPassword" [(ngModel)]="model.repeatPassword" [placeholder]="authModalRepeatPasswordFieldPlaceholder">
+			</div>
+		</modal-body>
+		
+		<modal-footer>
+			<button type="button" class="btn btn-default" data-dismiss="modal" (click)="register($event); validationModal.close();" [disabled]="!modalForm.valid">{{ authModalRegisterLabel }}</button>
+		</modal-footer>
+		
+	</form>
+</modal>

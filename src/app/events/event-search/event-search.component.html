@@ -1,0 +1,23 @@
+<div [formGroup]="searchForm" class="search-form">
+	<i class="fa fa-search search-icon"></i>
+	<input 
+		type="text" 
+		id="search-box" 
+		class="search-box" 
+		formControlName="searchTerm"
+		[placeholder]="placeholderLabel"
+		
+		i18n-placeholder="From placeholder"
+		
+		[source]="options"
+		[min-chars]="minNumChars"
+		[list-formatter]="dataListFormatter.bind(this)"
+		[no-match-found-text]="notFoundLabel"
+		[loading-text]="loadingDataLabel"
+		[accept-user-input]="isInputEnabled"
+		[max-num-list]="maxNumList"
+		value-property-name="id"
+		display-property-name="name"
+		auto-complete
+	/>
+</div>

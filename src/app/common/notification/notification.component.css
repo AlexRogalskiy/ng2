@@ -1,0 +1,14 @@
+.alert.alert-app-level.alert-info {
+	position: fixed;
+	width: 40%;
+	float: right;
+	right: 0;
+	top: 85px;
+	z-index: 2;
+	
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+}

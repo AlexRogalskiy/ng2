@@ -1,0 +1,58 @@
+.steps-custom {
+    display: flex;
+	width: 100%; 
+	align-items: stretch;
+    padding: 4px;
+    background: #f3f3f3;
+}
+
+.step-cell {
+    background-color: rgb(224, 224, 224);
+    border-radius: 8px;
+    margin: 2px;
+    transition: background-color 50ms ease;
+    
+  	flex: 1 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.steps-label {
+	font-size: 24px;
+	font-weight: 400;
+	color: black;
+	text-shadow: 1px 1px 3px #eaeaea;
+}
+
+.done {
+	background: rgba(131, 202, 255, 0.71);
+}
+
+.selected {
+	background: #0080de;
+}
+
+.disabled {
+	background: rgb(236, 236, 236);
+}
+
+.disabled-label {
+	color: #b3b3b3;
+}
+
+.step-cell:hover:not(.selected):not(.done):not(.disabled) {
+	background-color: rgb(204, 204, 204);
+}
+
+.step-cell:active:not(.selected):not(.done):not(.disabled) {
+	background-color: rgb(199, 199, 199);
+}
+
+.done:hover:not(.selected):not(.disabled) {
+	background-color: rgb(131, 202, 255);
+}
+
+.done:active:not(.selected):not(.disabled) {
+	background-color: rgb(87, 175, 241);
+}

@@ -1,0 +1,48 @@
+<div class="event-page-body" id="main">
+	<widget-toolbar (updateSearch)="onUpdateSearch($event.text)" [seachView]="isSearchView" [totalAmount]="this.ticketStore.getTotalAmount()" [totalPrice]="this.ticketStore.getTotalPrice()"></widget-toolbar>
+	<md-sidenav [opened]="isSideBarOpened" (mouseenter)="onMouseEnter(start)" (mouseleave)="onMouseLeave(start)" [@menuAnimate]="menuState" class="sidebar-menu">
+		<div class="cdk-focus-trap-content">
+			<div class="col-md-10 leftside" id="leftside">
+				<md-nav-list>
+					<div class="row"><h4>Фильтр по дате:</h4></div>
+					<md-list-item>
+						<datepicker [model]="datePickerModel" [type]="type" [name]="datePickerFromDateName" [placeholder]="datePickerStartPlaceholder" (change)="changeDate($event)" [format]="datePickerFormat" [disabled]="false" [className]="'datepicker'" [required]="true"></datepicker>
+					</md-list-item>
+					
+					<md-list-item>
+						<datepicker [model]="datePickerModel" [type]="type" [name]="datePickerToDateName" [placeholder]="datePickerEndPlaceholder" (change)="changeDate($event)" [format]="datePickerFormat" [disabled]="false" [className]="'datepicker'" [required]="true"></datepicker>
+					</md-list-item>
+					
+					<md-divider></md-divider>
+					
+					<div class="row"><h4>Фильтр по цене:</h4></div>
+					<md-list-item>
+						<nouislider [config]="sliderConfig" [(ngModel)]="sliderModel" class="price-range" [tooltips]="[ true, true ]" (ngModelChange)="onSliderChange($event)"></nouislider>
+					</md-list-item>
+					
+					<md-divider></md-divider>
+					
+					<div class="row"><h4>Фильтр по тарифам:</h4></div>
+					<md-list-item>
+						<!-- not implemented -->
+					</md-list-item>
+					
+				</md-nav-list>
+			</div>
+			<div class="col-md-2 rightside" id="rightside">
+				<i class="fa fa-white fa-2x fa-bars" [@iconAnimate]="iconState"></i>
+			</div>
+		</div>
+	</md-sidenav>
+	
+	<md-sidenav-container class="event-page-events">
+		<div class="scroll-list">
+			<div class="flex-column padded-block" infinite-scroll [infiniteScrollDistance]="scrollDistance" [infiniteScrollThrottle]="scrollThrottle" (scrolled)="onScrollDown()">
+				<event-card *ngFor="let event of events; trackBy: trackByEvents" [event]="event" (order)="order($event)"></event-card>
+			</div>
+		</div>
+	</md-sidenav-container>
+</div>
+	
+<order-dialog #orderDialog></order-dialog>
+<scroll-button></scroll-button>

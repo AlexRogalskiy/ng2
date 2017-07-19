@@ -1,0 +1,48 @@
+<div class="coupon-body flex-column">
+	<div *ngIf="!products">
+		<h3>Нет доступных услуг</h3>
+	</div>
+	<div *ngIf="productsAvailible()">
+		<h3>Выберите услуги</h3>
+		<div class="coupon-chip-line flex-row">
+			<div *ngFor="let product of products">
+			 	<div class="product-chip" (click)="purchase(product)" *ngIf="!isPurchased(product)">
+			 		{{product.name}}
+			 	</div>
+		 	</div>
+		</div>
+	</div>
+	<div *ngIf="coupons">
+		<h3 class="border-bottom">Корзина</h3>
+		<div *ngFor="let coupon of coupons; let i = index;" class="flex-row ticket-line border-bottom">
+			<!-- COUPON LABEL -->
+			<div class="flex-grow coupon-label coupon-label-bold margin-medium">{{coupon.product.name}}</div>
+			<div class="flex-row">
+				<!-- MINUS BUTTON -->
+				<button class="warning" md-mini-fab (click)="setQuantity(coupon, coupon.quantity-1)" *ngIf="coupon.quantity > 1">
+					<i class="fa fa-white margin-fa fa-2x fa-minus"></i>
+				</button>
+				<!-- INPUT -->
+				<input pInputText class="margin-small coupon-label coupon-input" [(ngModel)]="coupon.quantity" (keyup)="setQuantity(coupon, coupon.quantity)" (focusout)="checkNull(coupon)"/>
+				<!-- PLUS BUTTON -->
+				<div class="margin-small" [style.visibility]="(coupon.quantity >= coupon.product.limit ? 'hidden' : 'visible')">
+					<button class="warning" md-mini-fab (click)="setQuantity(coupon, coupon.quantity+1)">
+						<i class="fa fa-white margin-fa fa-2x fa-plus"></i>
+					</button>
+				</div>
+				<!-- PRICE -->
+				<div class="coupon-label margin-big" [style.width.em]="4">
+					{{coupon.product.price * coupon.quantity}}р.
+				</div>
+			</div>
+			<!-- DELETE BUTTON -->
+			<div class="margin-big">
+				<button class="danger" md-mini-fab (click)="setQuantity(coupon, 0)"><i class="fa fa-white fa-2x fa-times"></i></button>
+			</div>
+ 		</div>
+ 		<div class="flex-row">
+ 			<h3 class="flex-grow" align="left" [style.margin-top.px]="2">ИТОГ:</h3>
+ 			<h4 class="coupon-label-bold" [style.margin-top.px]="2">{{getSummary()}}р.</h4>
+ 		</div>
+	</div>
+</div>

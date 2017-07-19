@@ -1,0 +1,77 @@
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+
+.search-form {
+	position: relative;
+}
+
+.search-icon {
+	position: absolute;
+    top: 7px;
+    left: 12px;
+    z-index: 2;
+    color: lightgray;
+}
+
+.search-form input {
+	min-width: 450px;
+	height: 32px;
+	border: 1px solid #aaa;
+	border-radius: 5px;
+	box-shadow: 0 0 3px #ccc, 0 10px 15px #2184cd inset;
+	text-indent: 7%;
+	background-repeat: no-repeat;
+	background-size: 60% 60%;
+	background-position: -60% 50%;
+	background-color: #2184cd;
+}
+
+.search-form .search-box::-webkit-input-placeholder {
+   color: #fff;
+}
+ 
+.search-form .search-box:-moz-placeholder { /* Firefox 18- */
+   color: #fff;
+}
+ 
+.search-form .search-box::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;
+}
+ 
+.search-form .search-box:-ms-input-placeholder {  
+   color: #fff;
+}
+
+.search-box {
+    width: 30%;
+    padding: 4px 10px 5px 10px;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    outline: none;
+	font-size: 14px;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    line-height: 33px;
+    height: 30px!important;
+    margin: 0 auto;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+	border-radius: 2px;
+	border: 1px solid #d8d8d8;
+	color: #000;
+	-webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+}
+
+.search-box:focus {
+	background-color: white!important;
+	text-indent: 6%;
+	padding-left: 6%;
+	width: 50%;
+	border-color: #0ea0db;
+    box-shadow: none!important;
+}
+
+.search-icon {
+	
+}

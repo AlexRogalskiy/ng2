@@ -1,0 +1,11 @@
+modal .ng-valid[required] {
+	border-left: 5px solid #5cb85c; /* green */
+}
+
+modal .ng-invalid:not(.ng-untouched):not(form) {
+	border-left: 5px solid #d9534f; /* red */
+}
+
+modal .red-text {
+	color: #d9534f !important; /* red */
+}

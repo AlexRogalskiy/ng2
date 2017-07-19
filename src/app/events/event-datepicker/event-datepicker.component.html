@@ -1,0 +1,14 @@
+<md2-datepicker
+		[(ngModel)]="model"
+		[type]="type"
+		[placeholder]="placeholder"
+		[format]="format"
+		[disabled]="disabled"
+		[name]="name"
+		
+		(change)="onChangeDatePicker($event, name)"
+		[ngClass]="className"
+		[required]="required"
+		[class]="'md2-datepicker'"
+		#dateControl="ngModel">
+</md2-datepicker>

@@ -1,0 +1,36 @@
+.counter-value {
+    min-width: 30px;
+    display: inline-block;
+}
+
+.counter-plus, .counter-minus {
+    display: inline-block;
+    position: relative;
+	margin: 0px;
+}
+
+.ticket-form > span {
+	border: none!important;
+}
+
+.counter-value>input {
+	font-size: 14px!important;
+    font-weight: 700;
+    color: #32343c;
+    width: 50px;
+    height: 35px;
+    text-align: center;
+    border: none!important;
+}
+
+.error-block {
+	display: none;
+    clear: both;
+    font-size: 14px;
+    text-align: left;
+    padding: 6px 18px;
+    margin-bottom: 0;
+    color: #e64f4f;
+    width: 100%;
+	margin-top: 5px;
+}

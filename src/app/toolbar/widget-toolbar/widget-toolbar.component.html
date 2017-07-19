@@ -1,0 +1,13 @@
+<md-toolbar color="primary" class="toolbar-view">
+	<menu-bar (update)="onUpdate($event.text)"></menu-bar>
+	<event-search (change)="searchTerm($event.text)" *ngIf="searchView"></event-search>
+	<button class="toolbar-button" md-button (click)="openShoppingCartDialog($event)">
+		<!--<md-icon svgIcon="shopping-cart" aria-hidden="true"></md-icon>&nbsp;&nbsp;{{ shoppingCartLabel }} [{{ totalAmount | number }}] ({{ totalPrice | currency:'RUB':true:'1.2-2' }})-->
+		<i class="fa fa-2x fa-shopping-cart" aria-hidden="true"></i>&nbsp;&nbsp;{{ shoppingCartLabel }} [{{ this.totalAmount | number }}] ({{ totalPrice | currency:'RUB':true:'1.2-2' }})
+	</button>
+</md-toolbar>
+
+<app-notify></app-notify>
+<shopping-cart-dialog #shoppingCartDialog [items]="items"></shopping-cart-dialog>
+<login-dialog #authorizationDialog (update)="openRegisterDialog($event)"></login-dialog>
+<register-dialog #registrationDialog></register-dialog>

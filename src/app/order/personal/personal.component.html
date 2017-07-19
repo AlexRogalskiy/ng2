@@ -1,0 +1,14 @@
+<div class="flex-column">
+	<div class="form-group" [style.width]="'40%'">
+		<input class="form-control" id="name" [(ngModel)]="personalData.name" (change)="save()" placeholder="Имя">
+	</div>
+	<div class="form-group" [style.width]="'40%'">
+		<input class="form-control" id="surname" [(ngModel)]="personalData.surname" (change)="save()" placeholder="Фамилия">
+	</div>
+	<div class="form-group" [style.width]="'40%'">
+		<input class="form-control" id="middlename" [(ngModel)]="personalData.middlename" (change)="save()" placeholder="Отчество">
+	</div>
+	<div class="form-group" [style.width]="'60%'">
+		<input type="email" class="form-control" id="email" [(ngModel)]="personalData.email" (change)="save()" placeholder="Электронная почта">
+	</div>
+</div>

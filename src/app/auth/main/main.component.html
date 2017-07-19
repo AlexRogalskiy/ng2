@@ -1,0 +1,21 @@
+<div class="home jumbotron centered">
+	<h1>Welcome to the angular2 authentication sample!</h1>
+	
+	<h2 *ngIf="jwt">Your JWT is:</h2>
+	<pre *ngIf="jwt" class="jwt"><code></code></pre>
+	<pre *ngIf="jwt" class="jwt"><code></code></pre>
+	
+	<p>Click any of the buttons to call an API and get a response</p>
+	<p><a class="btn btn-primary btn-lg" role="button" (click)="callAnonymousApi()">Call Anonymous API</a></p>
+	<p><a class="btn btn-primary btn-lg" role="button" (click)="callSecuredApi()">Call Secure API</a></p>
+	<p><a class="btn btn-primary btn-lg" role="button" (click)="logout()">Logout</a></p>
+	
+	<div class="navbar-header">
+		<a class="navbar-brand" href="#">Auth0 - Angular 2</a>
+		<button class="btn btn-primary btn-margin" (click)="auth.login()" *ngIf="!auth.isAuthenticated()">Log In</button>
+		<button class="btn btn-primary btn-margin" (click)="auth.logout()" *ngIf="auth.isAuthenticated()">Log Out</button>
+	</div>
+	
+	<h2 *ngIf="response">The response of calling the <span class="red"></span> API is:</h2>
+	<h3 *ngIf="response"></h3>
+</div>

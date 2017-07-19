@@ -1,0 +1,11 @@
+<div class="steps-custom">
+   	<div 
+   		*ngFor="let stepLabel of stepContent; let i = index;" class="step-cell" 
+   		align="center" 
+   		[ngClass]="{'done': (stepsDone && stepsDone[i]), 'selected': (i == currentStep), 'disabled': (stepsDisabled && stepsDisabled[i])}" 
+   		(click)="select(i)">
+   		<div class="steps-label" [ngClass]="{'disabled-label': (stepsDisabled && stepsDisabled[i])}">
+   			{{stepLabel}}
+   		</div>
+   	</div>
+</div>

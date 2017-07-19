@@ -1,0 +1,14 @@
+<span class="app-action" [class.defaultScrollButtonView]="isSscrollButtonFixed">
+	<button 
+		#tooltip="mdTooltip" 
+		md-raised-button md-fab
+		(click)="scrollToTop()" 
+		(mouseover)="tooltip.show()" 
+		(mouseout)="tooltip.hide()" 
+		[mdTooltip]="message" 
+		[mdTooltipPosition]="position" 
+		[mdTooltipShowDelay]="showDelay"
+		[mdTooltipHideDelay]="hideDelay">
+		<i class="fa fa-4x fa-angle-up"></i>
+	</button>
+</span>

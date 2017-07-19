@@ -1,0 +1,48 @@
+<div class="tariff-body flex-column">
+	<div *ngIf="!tariffs">
+		<h3>Нет доступных тарифов</h3>
+	</div>
+	<div *ngIf="tariffs">
+		<h3 *ngIf="tariffsAvailible()">Выберите тариф</h3>
+		<div class="tariff-chip-line flex-row">
+			<div *ngFor="let tariff of tariffs">
+			 	<div class="tariff-chip" (click)="purchase(tariff)" *ngIf="!isPurchased(tariff)">
+			 		{{tariff.tariff}}
+			 	</div>
+		 	</div>
+		</div>
+	</div>
+	<div *ngIf="tickets">
+		<h3 class="border-bottom">Корзина</h3>
+		<div *ngFor="let ticket of tickets; let i = index;" class="flex-row ticket-line border-bottom">
+			<!-- TARIFF LABEL -->
+			<div class="flex-grow ticket-label ticket-label-bold margin-medium">{{ticket.tariff.tariff}}</div>
+			<div class="flex-row">
+				<!-- MINUS BUTTON -->
+				<button class="warning" md-mini-fab (click)="setQuantity(ticket, ticket.quantity-1)" *ngIf="ticket.quantity > 1">
+					<i class="fa fa-white margin-fa fa-2x fa-minus"></i>
+				</button>
+				<!-- INPUT -->
+				<input pInputText class="margin-small ticket-label tariff-input" [(ngModel)]="ticket.quantity" (keyup)="setQuantity(ticket, ticket.quantity)" (focusout)="checkNull(ticket)"/>
+				<!-- PLUS BUTTON -->
+				<div class="margin-small" [style.visibility]="(ticket.quantity >= ticket.tariff.limit ? 'hidden' : 'visible')">
+					<button class="warning" md-mini-fab (click)="setQuantity(ticket, ticket.quantity+1)">
+						<i class="fa fa-white margin-fa fa-2x fa-plus"></i>
+					</button>
+				</div>
+				<!-- PRICE -->
+				<div class="ticket-label margin-big" [style.width.em]="4">
+					{{ticket.tariff.price * ticket.quantity}}р.
+				</div>
+			</div>
+			<!-- DELETE BUTTON -->
+			<div class="margin-big">
+				<button class="danger" md-mini-fab (click)="setQuantity(ticket, 0)"><i class="fa fa-white fa-2x fa-times"></i></button>
+			</div>
+ 		</div>
+ 		<div class="flex-row">
+ 			<h3 class="flex-grow" align="left" [style.margin-top.px]="2">ИТОГ:</h3>
+ 			<h4 class="ticket-label-bold" [style.margin-top.px]="2">{{getSummary()}}р.</h4>
+ 		</div>
+	</div>
+</div>

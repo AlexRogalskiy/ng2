@@ -1,0 +1,8 @@
+<modal #orderDialog>
+	<navigate-steps [stepContent]="stepContent" [stepsDone]="stepsDone" [currentStep]="currentStep" [stepsDisabled]="stepsDisabled" (selectStep)="selectStep($event)"></navigate-steps>
+	<div [ngSwitch]="currentStep" class="order-dialog-body">
+		<order-tariffs *ngSwitchCase="0" (update)="setTariffs($event)"></order-tariffs>
+		<order-products *ngSwitchCase="1" (update)="setCoupons($event)"></order-products>
+		<order-personal *ngSwitchCase="2" (update)="setPersonal($event)"></order-personal>
+	</div>
+</modal>

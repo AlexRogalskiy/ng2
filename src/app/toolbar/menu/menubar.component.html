@@ -1,0 +1,12 @@
+<button class="toolbar-button" md-button [md-menu-trigger-for]="menu">Меню</button>
+
+<md-menu x-position="after" y-position="below" #menu="mdMenu">
+	<div *ngFor="let item of itemList | orderBy:'id'">
+		<ng-container *ngIf="item.visible">
+			<button md-menu-item (click)="onAction($event, item)" [disabled]="item.disabled" class="menu-button">
+				<i class="fa fa-2x fa-{{ item.icon }}" aria-hidden="true"></i>
+				<div class="margin-big">{{ item.label }}</div>
+			</button>
+		</ng-container>
+	</div>
+</md-menu>

@@ -1,0 +1,128 @@
+.event-page-body {
+	overflow: hidden;	
+}
+
+.event-page-events {
+	overflow: visible;	
+	margin-top: 65px;
+}
+
+.md-sidenav-content, .mat-sidenav-content {
+	display: inline!important;
+	position: inherit!important;
+}
+
+.mat-list-item-content {
+	height: auto!important;
+}
+
+.scroll-list {
+	position: inherit;
+    display: inline;
+    overflow: hidden;
+	//top: 75px;
+}
+
+.sidebar-menu.mat-sidenav {
+	background: deepskyblue;
+	color: #fff;
+	position: fixed!important;
+	bottom: 0px;
+	right: auto;
+	left: 54px;
+	top: 65px !important;
+	width: auto;
+	min-width: 420px;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	box-shadow: none!important;
+	z-index: 10;
+	height: 100%;
+	box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12)!important;
+}
+
+md-list, md-nav-list {
+	padding-top: 0px!important;
+}
+
+.md2-datepicker {
+	width: 100%!important;
+	position: relative;
+    display: block;
+	color: black;
+    max-width: 100%;
+    outline: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+datepicker {
+	width: 100%;
+	position: relative;
+    display: block;
+	color: black;
+    max-width: 100%;
+    outline: none;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.md2-datepicker-placeholder {
+	color: #fff!important;
+	right: 0!important;
+}
+
+.md2-datepicker-input-container {
+	padding: 18px 0 18px 40px!important;
+}
+
+.md-nav-list md-list-item .md-list-item {
+	padding: 0px 0px!important;
+	height: auto!important;
+	display: flex;
+	flex-direction: column;
+}
+
+.rightside {
+	height: 100%;
+	//display: inline-block;
+	background-color: #2184cd;
+	padding-top: 15px;
+	width: auto!important;
+}
+
+.leftside {
+	width: 100%;
+	margin: 0px 0px;
+}
+
+.leftside .row {
+	padding: 10px 15px 25px 15px;
+}
+
+.leftside .menu {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+.cdk-focus-trap-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	height: 100%;
+	width: 100%;
+}
+
+.price-range {
+	width: 100%;
+	height: 65px;
+}
+
+.md2.md-divider {
+	margin: 10px 0px;
+}
+
+.padded-block {
+	padding-top: 30px;
+	padding-bottom: 10px;	
+}

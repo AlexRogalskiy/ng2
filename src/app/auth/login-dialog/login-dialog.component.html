@@ -1,0 +1,26 @@
+<modal #authorize [animation]="animation" [keyboard]="keyboard" [backdrop]="backdrop" (onClose)="closed()" (onDismiss)="dismissed()" (onOpen)="opened()" [cssClass]="cssClass" class="auth-dialog" #validationModal>
+	<form #modalForm="ngForm" novalidate>
+	
+		<modal-header [show-close]="true">
+			<h4 class="modal-title">{{ authModalHeaderLabel }}</h4>
+		</modal-header>
+		
+		<modal-body>
+			<div class="form-group">
+				<label for="username">{{ authModalLoginFieldLabel }}</label>
+				<input type="text" #username class="form-control" autofocus required id="username" name="username" [(ngModel)]="model.login" [placeholder]="authModalLoginFieldPlaceholder">
+			</div>
+			<div class="form-group">
+				<label for="password">{{ authModalPasswordFieldLabel }}</label>
+				<input type="password" #password class="form-control" required id="password" name="password" [(ngModel)]="model.password" [placeholder]="authModalPasswordFieldPlaceholder">
+			</div>
+		</modal-body>
+		
+		<modal-footer>
+			<button type="button" class="btn btn-default" data-dismiss="modal" (click)="login($event); validationModal.close();" [disabled]="!modalForm.valid">{{ authModalLoginLabel }}</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal" (click)="signup($event); validationModal.close();">{{ authModalRegisterLabel }}</button>
+			<button type="button" class="btn btn-default btn-primary" data-dismiss="modal" (click)="auth.loginWithGoogle()">Аккаунт Google</button>
+		</modal-footer>
+		
+	</form>
+</modal>
